@@ -1,16 +1,18 @@
 /**
- * Created by Sestri4kina on 10.12.2016.
- * This is the test that measures the speed performance of adding
- * three new students to Gryffindor House.
+ * Created by Sestri4kina on 11.12.2016.
+ * This is the same test as measuring-performance.js
+ * rewritten with the ES6 class syntax.
  */
-function SpeedTest(testImplement, testParams, repetitions) {
-    this.testImplement = testImplement;
-    this.testParams = testParams;
-    this.repetitions = repetitions || 10000;
-    this.average = 0;
-}
-SpeedTest.prototype = {
-    startTest: function() {
+
+
+class SpeedTestClass {
+    constructor (testImplement, testParams, repetitions) {
+        this.testImplement = testImplement;
+        this.testParams = testParams;
+        this.repetitions = repetitions || 10000;
+        this.average = 0;
+    }
+    startTest() {
         var beginTime, endTime, sumTimes = 0;
         for(var i = 0, x = this.repetitions; i < x; i++) {
             beginTime = + new Date();
@@ -20,7 +22,7 @@ SpeedTest.prototype = {
         }
         this.average = sumTimes / this.repetitions;
         console.log(this.average);
-        return document.getElementById('measuring-performance').innerHTML = "Average execution across " + this.repetitions + " repetitions: " + this.average + " milliseconds.";
+        return document.getElementById('performance-class-approach').innerHTML = "Average execution across " + this.repetitions + " repetitions: " + this.average + " milliseconds.";
     }
 }
 
@@ -39,5 +41,5 @@ var BP = function( listOfParams ){
     }
 };
 
-var BPTest = new SpeedTest(BP, listsForTests, 100000);
-BPTest.startTest();
+var ClassTest = new SpeedTestClass(BP, listsForTests, 100000);
+ClassTest.startTest();
