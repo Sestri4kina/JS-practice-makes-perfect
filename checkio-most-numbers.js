@@ -13,8 +13,7 @@
  * all(-100 < x < 100 for x in args)
  * all(isinstance(x, (int, float)) for x in args)
  *
- */
-
+ */c
 //using rest parameters to solve the problem with an undefined amount of arguments
 function mostNumbers(...numbers){
     if (numbers.length === 0) {
