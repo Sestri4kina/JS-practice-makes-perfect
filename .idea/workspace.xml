@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4d1fd20c-3864-42da-858d-2810756af554" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/checkio-most-numbers.js" afterPath="$PROJECT_DIR$/checkio-most-numbers.js" />
-    </list>
+    <list default="true" id="4d1fd20c-3864-42da-858d-2810756af554" name="Default" comment="" />
     <ignored path="JS-practice-makes-perfect.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -25,30 +23,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="es6-iterators.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/es6-iterators.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="527">
-              <caret line="31" column="1" selection-start-line="31" selection-start-column="1" selection-end-line="31" selection-end-column="1" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="projecteuler_3.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/projecteuler_3.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="347">
-              <caret line="25" column="80" selection-start-line="25" selection-start-column="80" selection-end-line="25" selection-end-column="80" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="checkio-most-numbers.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/checkio-most-numbers.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
+            <state relative-caret-position="255">
               <caret line="15" column="4" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="4" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
@@ -57,11 +35,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="checkio-index-power.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="checkio-index-power.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/checkio-index-power.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
+            <state relative-caret-position="374">
               <caret line="22" column="41" selection-start-line="22" selection-start-column="41" selection-end-line="22" selection-end-column="41" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="checkio-triangle-angles.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/checkio-triangle-angles.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-58">
+              <caret line="20" column="67" selection-start-line="20" selection-start-column="67" selection-end-line="20" selection-end-column="67" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -94,6 +84,7 @@
         <option value="$PROJECT_DIR$/checkio-most-numbers.js" />
         <option value="$PROJECT_DIR$/x.js" />
         <option value="$PROJECT_DIR$/checkio-index-power.js" />
+        <option value="$PROJECT_DIR$/checkio-triangle-angles.js" />
       </list>
     </option>
   </component>
@@ -240,12 +231,12 @@
       <workItem from="1481381597361" duration="6961000" />
       <workItem from="1481554855251" duration="4635000" />
       <workItem from="1481749017163" duration="2249000" />
-      <workItem from="1481801460484" duration="2963000" />
+      <workItem from="1481801460484" duration="4176000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16808000" />
+    <option name="totallyTimeSpent" value="18021000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="163" y="108" width="917" height="518" extended-state="0" />
@@ -437,9 +428,19 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/checkio-index-power.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" column="41" selection-start-line="22" selection-start-column="41" selection-end-line="22" selection-end-column="41" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/checkio-most-numbers.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
+        <state relative-caret-position="255">
           <caret line="15" column="4" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="4" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
@@ -447,10 +448,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/checkio-index-power.js">
+    <entry file="file://$PROJECT_DIR$/checkio-triangle-angles.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="22" column="41" selection-start-line="22" selection-start-column="41" selection-end-line="22" selection-end-column="41" />
+        <state relative-caret-position="-58">
+          <caret line="20" column="67" selection-start-line="20" selection-start-column="67" selection-end-line="20" selection-end-column="67" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
