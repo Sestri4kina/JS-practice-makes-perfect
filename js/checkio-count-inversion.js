@@ -36,3 +36,11 @@ console.log(`Should return: 3. Output is: ${result}`);
 
 var result1 = countInversion([0, 1, 2, 3]);
 console.log(`Should return: 0. Output is: ${result1}`);
+
+/*
+* Elegant solution
+* function countInversion(sequence){
+*   return sequence.map((x, i, a) => a.slice(i + 1).filter(y => y < x).length).reduce((a, b) => a + b);
+* }
+*
+ */
