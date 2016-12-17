@@ -29,3 +29,10 @@ console.log(`Should return: 2. Output is: ${result}`);
 
 var result1 = binaryCount(15);
 console.log(`Should return: 4. Output is: ${result1}`);
+
+/*
+More elegant solution
+ function binaryCount(number){
+    return number.toString(2).replace(/0/g, '').length;
+ }
+ */

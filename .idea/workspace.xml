@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4d1fd20c-3864-42da-858d-2810756af554" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/checkio-count-inversion.js" afterPath="$PROJECT_DIR$/js/checkio-count-inversion.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/checkio-binary-count.js" afterPath="$PROJECT_DIR$/js/checkio-binary-count.js" />
     </list>
     <ignored path="JS-practice-makes-perfect.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -58,8 +58,8 @@
       <file leaf-file-name="checkio-binary-count.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/checkio-binary-count.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="19" column="24" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="24" />
+            <state relative-caret-position="289">
+              <caret line="35" column="55" selection-start-line="35" selection-start-column="55" selection-end-line="35" selection-end-column="55" />
               <folding />
             </state>
           </provider>
@@ -262,12 +262,12 @@
       <workItem from="1481749017163" duration="2249000" />
       <workItem from="1481801460484" duration="4837000" />
       <workItem from="1481819513192" duration="246000" />
-      <workItem from="1481819882624" duration="10809000" />
+      <workItem from="1481819882624" duration="11470000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="29737000" />
+    <option name="totallyTimeSpent" value="30398000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="273" y="27" width="890" height="528" extended-state="0" />
@@ -409,8 +409,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/checkio-binary-count.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="19" column="24" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="24" />
+        <state relative-caret-position="289">
+          <caret line="35" column="55" selection-start-line="35" selection-start-column="55" selection-end-line="35" selection-end-column="55" />
           <folding />
         </state>
       </provider>
