@@ -16,11 +16,8 @@
 function openOrSenior(members){
     var membership = [];
     for (var i = 0; i < members.length; i++){
-        if (members[i][0] >= 55 && members[i][1] > 7){
-            membership.push("Senior");
-        } else {
-            membership.push("Open");
-        }
+        var member = (members[i][0] >= 55 && members[i][1] > 7) ? "Senior" : "Open";
+        membership.push(member);
     }
     return membership;
 }
