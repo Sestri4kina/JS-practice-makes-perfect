@@ -15,10 +15,9 @@
 
 function openOrSenior(members){
     var membership = [];
-    for (var i = 0; i < members.length; i++){
-        var member = (members[i][0] >= 55 && members[i][1] > 7) ? "Senior" : "Open";
-        membership.push(member);
-    }
+    members.forEach(function(member){
+        membership.push( (member[0] >= 55 && member[1] > 7) ? "Senior" : "Open" );
+    });
     return membership;
 }
 
@@ -27,3 +26,9 @@ console.log(`Should return: ["Open", "Open", "Senior", "Open", "Open", "Senior"]
 
 var result1 = openOrSenior([[3, 12],[55,1],[91, -2],[54, 23]]);
 console.log(`Should return: ['Open', 'Open', 'Open', 'Open']. Output is: ${result1}`);
+
+/* More elegant solution
+ function openOrSenior(data){
+    return data.map(([age, handicap]) => (age > 54 && handicap > 7) ? 'Senior' : 'Open');
+ }
+ */
