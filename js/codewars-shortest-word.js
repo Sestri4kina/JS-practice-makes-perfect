@@ -15,3 +15,7 @@ console.log(`Should return: 3. Output is: ${result}`);
 
 var result1 = findShortest("turns out random test cases are easier than writing out basic ones");
 console.log(`Should return: 3. Output is: ${result1}`);
+
+/*
+That's the first time that I find my solution the most elegant amongst all the others.
+ */
