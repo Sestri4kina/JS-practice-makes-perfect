@@ -29,3 +29,9 @@ console.log(`Should return: [-5, 10, 15, -20]. Output is: ${result}`);
 
 var result1 = absoluteSorting([-1, -2, -3, 0]);
 console.log(`Should return: [0, -1, -2, -3]. Output is: ${result1}`);
+
+/* Elegant solution
+ function absoluteSorting(numbers){
+    return numbers.sort((a, b) => Math.abs(a) - Math.abs(b))
+ }
+ */
