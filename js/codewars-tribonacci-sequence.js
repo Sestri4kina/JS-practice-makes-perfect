@@ -29,3 +29,23 @@ console.log(`Should return: [0.5,0.5,0.5,1.5,2.5,4.5]. Output is: ${result1}`);
 
 var result2 = tribonacci([300,200,100],0);
 console.log(`Should return: []. Output is: ${result2}`);
+
+/*This one is a 'best practices' solution
+ function tribonacci(signature,n) {
+    const result = signature.slice(0, n);
+    while (result.length < n) {
+        result[result.length] = result.slice(-3).reduce((p,c) => p + c, 0);
+    }
+    return result;
+ }
+ */
+
+/* This one I find interesting for the place where ternary operator was used
+ function tribonacci(s,n){
+    var arr = [];
+    for(var i=0; i<n; i++) {
+        arr.push((i<3) ? s[i] : arr[i-1]+arr[i-2]+arr[i-3]);
+    }
+    return arr;
+ }
+ */
