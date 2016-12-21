@@ -12,7 +12,7 @@
  *
  */
 
-function findMessage(data){
+module.exports = function findMessage(data){
     var message = '';
     for (var i = 0; i < data.length; i++){
         var character = data.charAt(i);
@@ -20,11 +20,12 @@ function findMessage(data){
             message += character;
         }
     }
-    return message.length > 0 ? message : 'No message';
+    return message.length > 0 ? message : '';
 }
-
+/*
 var result = findMessage("How are you? Eh, ok. Low or Lower? Ohhh.");
 console.log(`Should return: HELLO. Output is: ${result}`);
 
 var result1 = findMessage("hello world!");
-console.log(`Should return: No message. Output is: ${result1}`);
+console.log(`Should return: ''. Output is: ${result1}`);
+*/
