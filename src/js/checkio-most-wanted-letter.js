@@ -15,7 +15,7 @@
  *
  */
 
-function mostWanted(data){
+module.exports = function mostWanted(data){
     var newData = data.toLowerCase().match(/[a-z]/gi);
     //2d array
     var frequency = [];
@@ -38,6 +38,7 @@ function mostWanted(data){
     return result[0][0];
 }
 
+/*
 var result = mostWanted("Hello World!");
 console.log(`Should return: 'l'. Output is: ${result}`);
 
@@ -49,3 +50,4 @@ console.log(`Should return: 'a'. Output is: ${result2}`);
 
 var result3 = mostWanted("fn;lsfndasl;f naslkdnlkasdnfslahwemwjkrjkl;zcmk;lzcdkcslksdkseewme,");
 console.log(`Should return: 'k'. Output is: ${result3}`);
+*/
