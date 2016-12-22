@@ -16,8 +16,8 @@
  */
 
 function mostWanted(data){
-    var newData = data.toLowerCase().match(/[a-z]/gi).sort();
-    console.log(newData);
+    var newData = data.toLowerCase().match(/[a-z]/gi);
+    //2d array
     var frequency = [];
     for(var i = 0; i < newData.length; i++){
         var count = 0;
@@ -26,10 +26,16 @@ function mostWanted(data){
                 count++;
             }
         }
-        frequency.push(count);
+        //each array's element contains a letter and its frequency
+        var element = [newData[i], count];
+        frequency.push(element);
     }
-
-    return frequency.filter(x => x != '0').sort((a,b) => a-b);
+    //sort frequency array by letter's frequencies
+    var intermediate = frequency.filter(x => x[1] != '0').sort((a,b) => a[1]-b[1]);
+    //create new array with equal highest frequencies and sort it by letters
+    var result = intermediate.filter((x,index, arr) => { return x[1] == (arr[arr.length -1])[1] }).sort();
+    //output the first(alphabetic order) letter with the highest frequency
+    return result[0][0];
 }
 
 var result = mostWanted("Hello World!");
@@ -37,3 +43,9 @@ console.log(`Should return: 'l'. Output is: ${result}`);
 
 var result1 = mostWanted("One");
 console.log(`Should return: 'e'. Output is: ${result1}`);
+
+var result2 = mostWanted("AAaooo!!!!");
+console.log(`Should return: 'a'. Output is: ${result2}`);
+
+var result3 = mostWanted("fn;lsfndasl;f naslkdnlkasdnfslahwemwjkrjkl;zcmk;lzcdkcslksdkseewme,");
+console.log(`Should return: 'k'. Output is: ${result3}`);
