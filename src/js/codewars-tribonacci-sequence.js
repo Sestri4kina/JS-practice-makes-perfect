@@ -10,7 +10,7 @@
  * then return an empty array and be ready for anything else which is not clearly specified
  */
 
-function tribonacci(signature, n){
+module.exports = function tribonacci(signature, n){
     var arr = signature;
     for (var i = 3; i < n; i++){
         arr.push(arr[i-1] + arr[i-2] + arr[i-3]);
@@ -20,7 +20,7 @@ function tribonacci(signature, n){
             n == 2 ? [signature[0], signature[1]] : arr;
 }
 
-
+/*
 var result = tribonacci([1,1,1],10);
 console.log(`Should return: [1,1,1,3,5,9,17,31,57,105]. Output is: ${result}`);
 
@@ -29,8 +29,9 @@ console.log(`Should return: [0.5,0.5,0.5,1.5,2.5,4.5]. Output is: ${result1}`);
 
 var result2 = tribonacci([300,200,100],0);
 console.log(`Should return: []. Output is: ${result2}`);
-
-/*This one is a 'best practices' solution
+*
+*
+* This one is a 'best practices' solution
  function tribonacci(signature,n) {
     const result = signature.slice(0, n);
     while (result.length < n) {
