@@ -9,7 +9,7 @@
  * Your task is to write a function maskify, which changes all but the last four characters into '#'.
  */
 
-function maskify(data){
+module.exports = function maskify(data){
     var l = data.length;
     var partOne = '';
     for(var i = 0; i < l-4; i++){
@@ -19,6 +19,7 @@ function maskify(data){
     return l > 4 ? (partOne + partTwo) : data;
 }
 
+/*
 var result = maskify("4556364607935616");
 console.log(`Should return: ############5616. Output is: ${result}`);
 
@@ -27,3 +28,9 @@ console.log(`Should return: "1". Output is: ${result1}`);
 
 var result2 = maskify("Skippy");
 console.log(`Should return: ##ippy. Output is: ${result2}`);
+*
+*  More elegant solution
+function maskify(data) {
+    return data.slice(0, -4).replace(/./g, '#') + data.slice(-4);
+ }
+*/
