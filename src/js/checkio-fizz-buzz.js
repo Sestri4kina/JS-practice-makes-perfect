@@ -11,13 +11,14 @@
  *
  */
 
-function fizzBuzz(number){
-    if (number % 5 == 0 && number % 3 == 0) return "Fizz Buzz";
-    else if (number % 3 == 0) return "Fizz";
-    else if (number % 5 == 0) return "Buzz";
-    else return number.toString();
+module.exports = function fizzBuzz(number){
+    return (number % 15 === 0) ? "Fizz Buzz" :
+                  (number % 3 == 0) ? "Fizz" :
+                      (number % 5 == 0) ? "Buzz" :
+                          number.toString();
 }
 
+/*
 var result = fizzBuzz(15);
 console.log(`Should return: "Fizz Buzz". Output is: ${result}`);
 
@@ -26,3 +27,4 @@ console.log(`Should return: "Fizz". Output is: ${result1}`);
 
 var result2 = fizzBuzz(7);
 console.log(`Should return: "7". Output is: ${result2}`);
+*/
