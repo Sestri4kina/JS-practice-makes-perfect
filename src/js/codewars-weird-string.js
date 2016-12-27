@@ -11,23 +11,7 @@
  * Words will be separated by a single space(' ').
  */
 
-function toWeirdCase(data) {
-    /*
-     return data.split('').map((x, index) => {
-     return ( index % 2 === 0 ) ? x.toUpperCase() : x;}).join('');
-     */
-    /*
-    var arr = data.split(' ');
-    var result = arr.map(function(x, index){
-        var check = arr.slice(1, index - 1);
-        return (index === 0) ?
-            x.split('').map((y, j) => {return j % 2 === 0 ? y.toUpperCase() : y}).join('') :
-            (check % 2 === 0) ?
-            x.split('').map((y, j) => {return j % 2 === 0 ? y.toUpperCase() : y}).join('') :
-            x.split('').map((y, j) => {return j % 2 !== 0 ? y.toUpperCase() : y}).join('');
-    });
-    return result.join(' ');
-    */
+module.exports = function toWeirdCase(data) {
     var arr = data.split(' ');
     var result = arr.map((x) => {
         return x.split('').map((y, j) => {
@@ -36,8 +20,9 @@ function toWeirdCase(data) {
     return result.join(' ');
 }
 
+/*
 var result = toWeirdCase("String");
-console.log(`Should return: "StRiNg. Output is: ${result}`);
+console.log(`Should return: StRiNg. Output is: ${result}`);
 
 var result1 = toWeirdCase("This is a test");
 console.log(`Should return: 'ThIs Is A TeSt'. Output is: ${result1}`);
@@ -45,3 +30,20 @@ console.log(`Should return: 'ThIs Is A TeSt'. Output is: ${result1}`);
 
 var result2 = toWeirdCase("This is the final test case");
 console.log(`Should return: 'ThIs Is ThE FiNaL TeSt CaSe'. Output is: ${result2}`);
+*/
+/*
+ return data.split('').map((x, index) => {
+ return ( index % 2 === 0 ) ? x.toUpperCase() : x;}).join('');
+ */
+/*
+ var arr = data.split(' ');
+ var result = arr.map(function(x, index){
+ var check = arr.slice(1, index - 1);
+ return (index === 0) ?
+ x.split('').map((y, j) => {return j % 2 === 0 ? y.toUpperCase() : y}).join('') :
+ (check % 2 === 0) ?
+ x.split('').map((y, j) => {return j % 2 === 0 ? y.toUpperCase() : y}).join('') :
+ x.split('').map((y, j) => {return j % 2 !== 0 ? y.toUpperCase() : y}).join('');
+ });
+ return result.join(' ');
+ */
