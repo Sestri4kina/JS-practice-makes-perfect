@@ -13,7 +13,7 @@
  *
  */
 
-function binaryCount(number){
+module.exports = function binaryCount(number){
     var data = number.toString(2).split('');
     var count = 0;
     for (var i = 0; i < data.length; i++){
@@ -22,8 +22,9 @@ function binaryCount(number){
         }
     }
     return count;
-}
+};
 
+/*
 var result = binaryCount(10);
 console.log(`Should return: 2. Output is: ${result}`);
 
