@@ -18,7 +18,7 @@
  *
  */
 
-function countInversion(data){
+module.exports = function countInversion(data){
     var count = 0;
     var l = data.length;
     for(var i = 0; i < l; i++){
@@ -30,7 +30,7 @@ function countInversion(data){
     }
     return count;
 }
-
+/*
 var result = countInversion([1, 2, 5, 3, 4, 7, 6]);
 console.log(`Should return: 3. Output is: ${result}`);
 
