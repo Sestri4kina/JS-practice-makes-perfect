@@ -12,7 +12,7 @@
  *
  */
 
-function indexPower(arr, N){
+module.exports = function indexPower(arr, N){
     if ( N >= arr.length) {
         return -1;
     } else {
@@ -20,6 +20,7 @@ function indexPower(arr, N){
     }
 }
 
+/*
 let result = indexPower([1, 2, 3, 4], 2);
 console.log(`Should return: 9. Output is: ${result}`);
 
@@ -28,3 +29,4 @@ console.log(`Should return: 1000000. Output is: ${result1}`);
 
 let result2 = indexPower([1, 2], 3);
 console.log(`Should return: -1. Output is: ${result2}`);
+*/
