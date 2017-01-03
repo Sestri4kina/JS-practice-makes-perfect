@@ -5,7 +5,7 @@
  * and numeric digits that occur more than once in the input string
  */
 
-function duplicateCount(data){
+module.exports = function duplicateCount(data){
     var res = data.toLowerCase().split('').sort()
         .map((x, index, arr) => {return arr.indexOf(x)})
         .filter((x, index, arr) => {return x === arr[index+1] ? 1 : 0});
@@ -14,8 +14,9 @@ function duplicateCount(data){
         res[i] !== res[i+1] ? count++ : count;
     }
     return count;
-}
+};
 
+/*
 let result = duplicateCount("Indivisibility");
 console.log(`Should return: 1. Output is: ${result}`);
 
