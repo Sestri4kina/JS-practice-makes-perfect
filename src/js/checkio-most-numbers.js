@@ -13,16 +13,23 @@
  * all(-100 < x < 100 for x in args)
  * all(isinstance(x, (int, float)) for x in args)
  *
- */c
+ */
 //using rest parameters to solve the problem with an undefined amount of arguments
-function mostNumbers(...numbers){
-    if (numbers.length === 0) {
-        return 0;
-    } else {
-        let sortedNumbers = numbers.sort(function(a, b){return a-b});
-        return Number((sortedNumbers[sortedNumbers.length - 1] - sortedNumbers[0]).toFixed(3));
-    }
-}
+module.exports = function mostNumbers(...numbers){
+    let sortedNumbers = numbers.sort(function(a, b){return a-b});
+    return sortedNumbers.length === 0 ? 0 :
+        Number((sortedNumbers[sortedNumbers.length - 1] - sortedNumbers[0]).toFixed(3));
+};
+
+/*
+refactor 06.01.2016
+previous solution:
+ if (numbers.length === 0) {
+ return 0;
+ } else {
+ let sortedNumbers = numbers.sort(function(a, b){return a-b});
+ return Number((sortedNumbers[sortedNumbers.length - 1] - sortedNumbers[0]).toFixed(3));
+ }
 
 let result = mostNumbers(10.2, -2.2, 0, 1.1, 0.5);
 //should output: 12.4
@@ -36,3 +43,4 @@ console.log(`Should output: 10. Output is: ${result2}`);
 //should output: 140
 let result3 = mostNumbers(36,-26,-7.5,0.9,0.53,-6.6,-71,0.53,-48,57,69,0.063,-4.7,0.01,9.2);
 console.log(`Should output: 140. Output is: ${result3}`);
+*/
