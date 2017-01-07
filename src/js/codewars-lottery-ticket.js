@@ -11,7 +11,7 @@
  * Once you have counted all of your mini wins, compare that number to the other input provided (win).
  * If your total is more than or equal to (win), return 'Winner!'. Else return 'Loser!'.
  */
-function bingo(ticket, win) {
+module.exports = function bingo(ticket, win) {
     var count = 0;
     for (var i = 0; i < ticket.length; i++){
         var str = ticket[i][0],
@@ -20,9 +20,9 @@ function bingo(ticket, win) {
             count++ : count;
     }
     return count >= win ? 'Winner!' : 'Loser!';
-}
+};
 
-
+/*
 var result = bingo([['ABC', 65], ['HGR', 74], ['BYHT', 74]], 2);
 console.log(`Should return: Loser!. Output is: ${result}`);
 
@@ -31,7 +31,4 @@ console.log(`Should return: Winner!. Output is: ${result1}`);
 
 var result2 = bingo([['HGTYRE', 74], ['BE', 66], ['JKTY', 74]], 3);
 console.log(`Should return: Loser!. Output is: ${result2}`);
-
-/*
-
- */
+*/
