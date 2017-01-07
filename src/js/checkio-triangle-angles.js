@@ -17,18 +17,30 @@
  * Precondition: 0 < a,b,c ≤ 1000
  */
 
-function triangleAngles(a, b, c){
-    if ( a + b <= c || a + c <= b || b + c <= a) { //checking if a triangle with such sides exists
-        return [0, 0, 0];
-    } else {
-        let alpha, beta, gamma; //angles of a triangle
-        alpha = Math.round( Math.acos((b*b + c*c - a*a)/(2*b*c))*(180/Math.PI) );
-        beta = Math.round( Math.acos((a*a + c*c - b*b)/(2*a*c))*(180/Math.PI) );
-        gamma = Math.round( Math.acos((b*b + a*a - c*c)/(2*b*a))*(180/Math.PI) );
-        let angles = [alpha, beta, gamma];
-        return angles.sort(function(a, b){return a-b});
-    }
-}
+module.exports = function triangleAngles(a, b, c){
+    let alpha, beta, gamma; //angles of a triangle
+    alpha = Math.round( Math.acos((b*b + c*c - a*a)/(2*b*c))*(180/Math.PI) );
+    beta = Math.round( Math.acos((a*a + c*c - b*b)/(2*a*c))*(180/Math.PI) );
+    gamma = Math.round( Math.acos((b*b + a*a - c*c)/(2*b*a))*(180/Math.PI) );
+    let angles = [alpha, beta, gamma];
+
+    return ( a + b <= c || a + c <= b || b + c <= a ) ? [0, 0, 0] : angles.sort((a, b) => {return a-b});
+
+};
+
+/*
+refactor 07.01.2017
+previous solution:
+ if ( a + b <= c || a + c <= b || b + c <= a) { //checking if a triangle with such sides exists
+ return [0, 0, 0];
+ } else {
+ let alpha, beta, gamma; //angles of a triangle
+ alpha = Math.round( Math.acos((b*b + c*c - a*a)/(2*b*c))*(180/Math.PI) );
+ beta = Math.round( Math.acos((a*a + c*c - b*b)/(2*a*c))*(180/Math.PI) );
+ gamma = Math.round( Math.acos((b*b + a*a - c*c)/(2*b*a))*(180/Math.PI) );
+ let angles = [alpha, beta, gamma];
+ return angles.sort(function(a, b){return a-b});
+ }
 
 let result = triangleAngles(2, 2, 5);
 console.log(`Should return: 0, 0, 0. Output is: ${result}`);
@@ -38,3 +50,4 @@ console.log(`Should return: 60, 60, 60. Output is: ${result1}`);
 
 let result2 = triangleAngles(3, 4, 5);
 console.log(`Should return: 37, 53, 90. Output is: ${result2}`);
+    */
