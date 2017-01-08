@@ -13,14 +13,15 @@
  * to be placed in the senior or open category.
  */
 
-function openOrSenior(members){
+module.exports = function openOrSenior(members){
     var membership = [];
     members.forEach(function(member){
         membership.push( (member[0] >= 55 && member[1] > 7) ? "Senior" : "Open" );
     });
     return membership;
-}
+};
 
+/*
 var result = openOrSenior([[18, 20],[45, 2],[61, 12],[37, 6],[21, 21],[78, 9]]);
 console.log(`Should return: ["Open", "Open", "Senior", "Open", "Open", "Senior"]. Output is: ${result}`);
 
