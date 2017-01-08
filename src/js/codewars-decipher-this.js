@@ -11,7 +11,7 @@
  Keepin' it simple -- there are no special characters
  */
 
-function decipherThis(data){
+module.exports = function decipherThis(data){
     return data.split(' ').map((x) => {
         var num = x.match(/[0-9]/g).join(''),
             letter = String.fromCharCode( Number(num) );
@@ -22,9 +22,10 @@ function decipherThis(data){
         return newX.length <= 2 ? newX :
         newX.substr(0,1) + lastLetter + newX.substring(2, newX.length - 1) + secondLetter;
     }).join(' ');
-}
+};
 
-var result = decipherThis('72olle 103doo 100ya');
+
+/*var result = decipherThis('72olle 103doo 100ya');
 console.log(`Should return : 'Hello good day'. Output is: ${result}`);
 
 var result1 = decipherThis('82yade 115te 103o');
@@ -37,4 +38,6 @@ more elegant solution:
  .replace(/^(.)(.)(.*)(.)$/, "$1$4$3$2")
  )
  .join(" ")
+
+ read: https://developer.mozilla.org/uk/docs/Web/JavaScript/Reference/Global_Objects/RegExp
  */
