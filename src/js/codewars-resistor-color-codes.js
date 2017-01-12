@@ -9,7 +9,7 @@
  * Resistors that do not have a fourth band are rated at 20% tolerance.
  */
 
-function decodeResistorColors(bands){
+module.exports = function decodeResistorColors(bands){
     var colorCodes = [['black', 0], ['brown', 1], ['red', 2],
         ['orange', 3], ['yellow', 4], ['green', 5], ['blue', 6],
         ['violet', 7], ['gray', 8], ['white', 9]
@@ -28,8 +28,8 @@ function decodeResistorColors(bands){
     return (num < 1000) ? `${num} ohms, ${tolerance}` :
         (num >= 1000 && num < 1000000) ? `${num/1000}k ohms, ${tolerance}` :
             (num >= 1000000) ? `${num/1000000}M ohms, ${tolerance}` : 'resistance is more than 1mln';
-}
-
+};
+/*
 var result = decodeResistorColors("yellow violet black");
 console.log(`Should return: "47 ohms, 20%". Output is: ${result}`);
 
@@ -38,3 +38,4 @@ console.log(`Should return: "4.7k ohms, 5%". Output is: ${result1}`);
 
 var result2 = decodeResistorColors("brown black green silver");
 console.log(`Should return: "1M ohms, 10%". Output is: ${result2}`);
+*/
