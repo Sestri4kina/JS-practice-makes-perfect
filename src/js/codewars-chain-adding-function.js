@@ -5,7 +5,7 @@
  */
 
 //using Proxy to solve the task => https://ponyfoo.com/articles/es6-proxies-in-depth
-function add(n){
+module.exports = function add(n){
     var sum = n;
     const chain = new Proxy(function a () {}, {
         get (obj, key) {
@@ -17,9 +17,9 @@ function add(n){
         },
     });
     return chain;
-}
+};
 
-
+/*
 var result = add(1) ;
 console.log(`Should return: 1. Output is: ${result}`);
 
@@ -28,4 +28,16 @@ console.log(`Should return:  3. Output is: ${result1}`);
 
 var result2 = add(1)(2)(10);
 console.log(`Should return:  13. Output is: ${result2}`);
+
+ one more possible solution:
+ var chain = function(x) {
+ return add(n + x);
+ };
+
+ chain.valueOf = function() {
+ return n;
+ };
+
+ return chain;
+*/
 
