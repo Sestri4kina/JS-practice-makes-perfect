@@ -5,13 +5,14 @@
  * The first word within the output should be capitalized only if the original word was capitalized.
  */
 
-function toCamelCase(str){
+module.exports = function toCamelCase(str){
     var data = str.split('').map((x, index, arr) => {
         return arr[index -1] === '_' || arr[index -1] === '-' ? x.toUpperCase() : x})
         .join('');
     return data.replace(/[-_]/g, '');
-}
+};
 
+/*
 var result = toCamelCase("the-stealth-warrior") ;
 console.log(`Should return: "theStealthWarrior". Output is: ${result}`);
 
