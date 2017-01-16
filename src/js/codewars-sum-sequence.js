@@ -6,14 +6,15 @@
  * If begin value is greater than the end, function should returns 0
  */
 
-function sequenceSum(start, end, step){
+module.exports = function sequenceSum(start, end, step){
     var sum = [start];
     while( sum[sum.length - 1] + step <= end){
         sum.push(sum[sum.length - 1] + step)
     }
     return start > end ? 0 : sum.reduce((a,b) => {return a+b});
-}
+};
 
+/*
 var result = sequenceSum(2,2,2);
 console.log(`Should return: 2. Output is: ${result}
 `);
