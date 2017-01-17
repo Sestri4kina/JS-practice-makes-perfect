@@ -11,10 +11,11 @@ function changeCase(word){
     }).join('');
 }
 
-function stringTransformer(str){
+module.exports = function stringTransformer(str){
     return str.split(' ').map(x => {return changeCase(x)}).reverse().join(' ');
-}
+};
 
+/*
 var result = stringTransformer('Example string');
 console.log(`Should return: 'STRING eXAMPLE'. Output is: ${result}
 `);
@@ -22,3 +23,4 @@ console.log(`Should return: 'STRING eXAMPLE'. Output is: ${result}
 var result1 = stringTransformer('STRING eXAMPLE');
 console.log(`Should return: 'Example string'. Output is: ${result1}
 `);
+*/
