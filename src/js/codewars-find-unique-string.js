@@ -5,7 +5,7 @@
  * All strings contains similar letters except one. Try to find it!
  * Strings may contain spaces. It’s guaranteed that array contains more than 3 strings.
  */
-function findUniq(data){
+module.exports = function findUniq(data){
     var tmp = data.map(str => {
         return str.toUpperCase().split('').sort().filter(x => {return x !== ' '}).join('');
     });
@@ -21,8 +21,9 @@ function findUniq(data){
     return data.find(x => {
         return x.toUpperCase().split('').sort().filter(x => {return x !== ' '}).join('') == element;
     });
-}
+};
 
+/*
 var result = findUniq([ 'Aa', 'aaa', 'aaaaa', 'BbBb', 'Aaaa', 'AaAaAa', 'a' ]);
 console.log(`Should return: 'BbBb'. Output is: ${result}
 `);
