@@ -4,7 +4,7 @@
  * The function takes an integer on the standard input and returns a list of integers.
  * That list contains the prime factors in numerical sequence.
  */
-function primeFactors(num){
+module.exports = function primeFactors(num){
     var tmp = num,
         factors = [];
     for (var i = 2; i <= num; i++){
@@ -14,8 +14,9 @@ function primeFactors(num){
         }
     }
     return factors;
-}
+};
 
+/*
 var result = primeFactors(1);
 console.log(`Should return: []. Output is: ${result}
 `);
@@ -27,3 +28,4 @@ console.log(`Should return: [2, 5]. Output is: ${result1}
 var result2 = primeFactors(8);
 console.log(`Should return: [2, 2, 2]. Output is: ${result2}
 `);
+*/
