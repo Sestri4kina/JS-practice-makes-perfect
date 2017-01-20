@@ -16,7 +16,7 @@ function isPrime(num){
     return true;
 }
 
-function step(dif, start, end){
+module.exports = function step(dif, start, end){
     var primes = [];
 
     for (var i = start; i <= end; i++){
@@ -30,8 +30,9 @@ function step(dif, start, end){
     });
 
     return firstPrime != undefined ? [firstPrime, firstPrime+dif] : null;
-}
+};
 
+/*
 var result = step(2, 5, 7);
 console.log(`Should return: [5, 7]. Output is: ${result}
 `);
@@ -43,3 +44,4 @@ console.log(`Should return: [163, 167]. Output is: ${result1}
 var result2 = step(6, 100, 103);
 console.log(`Should return: null. Output is: ${result2}
 `);
+*/
