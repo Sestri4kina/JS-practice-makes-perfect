@@ -6,7 +6,7 @@
  * sumNestedNumbers([1, [2], 3, [4, [5]]]) =>
  * should return: 1 + 2*2 + 3 + 4*4 + 5*5*5 === 149.
  */
-function sumNestedNumbers(data) {
+module.exports = function sumNestedNumbers(data) {
     var result = [];
 
     data.forEach(x => {
@@ -27,8 +27,9 @@ function sumNestedNumbers(data) {
         }
     });
     return result.reduce((a, b) => {return a + b});
-}
+};
 
+/*
 var result = sumNestedNumbers([1, [2], 3, [4, 5, [7]]]);
 console.log(`Should return: 392. Output is: ${result}
 `);
