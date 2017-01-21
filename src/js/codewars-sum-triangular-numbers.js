@@ -7,7 +7,7 @@
  */
 //using pure mathematics: return nth < 0 ? 0 : nth * (nth + 1) * (nth + 2) / 6;
 //building code as programmer:
-function sumTriangularNumbers(nth){
+module.exports = function sumTriangularNumbers(nth){
     var triangularNums = [1];
     if (nth < 0){return 0}
     for (var i = 1; i < nth; i++){
@@ -15,8 +15,9 @@ function sumTriangularNumbers(nth){
         triangularNums.push(nextEl);
     }
     return triangularNums.reduce((a, b) => {return a+b});
-}
+};
 
+/*
 var result = sumTriangularNumbers(6);
 console.log(`Should return: 56. Output is: ${result}
 `);
@@ -28,3 +29,4 @@ console.log(`Should return: 140205240. Output is: ${result1}
 var result2 = sumTriangularNumbers(-971);
 console.log(`Should return: 0. Output is: ${result2}
 `);
+ */
