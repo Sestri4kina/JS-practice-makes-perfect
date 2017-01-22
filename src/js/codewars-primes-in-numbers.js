@@ -7,7 +7,7 @@
  * with the p(i) in increasing order and n(i) empty if n(i) is 1.
  * Example: n = 86240 should return "(2**5)(5)(7**2)(11)"
  */
-function primeFactors(num){
+module.exports = function primeFactors(num){
     var factors = [],
         divisor = 2;
     while (num >= 2){
@@ -27,8 +27,9 @@ function primeFactors(num){
                 factors.lastIndexOf(x)-factors.indexOf(x) + 1;
             return  power === 1 ? `(${x})` : `(${x}**${power})`})
         .join('');
-}
+};
 
+/*
 var result = primeFactors(7775460);
 console.log(`Should return: "(2**2)(3**3)(5)(7)(11**2)(17)". Output is: ${result}
 `);
@@ -40,3 +41,4 @@ console.log(`Should return: "(2**5)(5)(7**2)(11)". Output is: ${result1}
 var result2 = primeFactors(1);
 console.log(`Should return: "(1)". Output is: ${result2}
 `);
+    */
