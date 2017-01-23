@@ -13,22 +13,23 @@
  */
 function amountDivisors(num){
     var countDivisors = 0;
-    for (var i = 0; i <= num/2; i++){
+    for (var i = 2, limit = num/2; i <= limit; i++){
         if(num % i === 0){countDivisors++}
     }
     return countDivisors;
 }
 
-function countPairsInt(diff, nMax){
+module.exports = function countPairsInt(diff, nMax){
     var countPairs = 0;
-    for (var i = 2; i + diff < nMax; i++){
+    for (var i = 2, limit = nMax - diff; i < limit; i++){
         if (amountDivisors(i) === amountDivisors(i+diff)){
             countPairs++;
         }
     }
     return countPairs;
-}
+};
 
+/*
 var result = countPairsInt(1, 50);
 console.log(`Should return: 8. Output is: ${result}
 `);
@@ -36,3 +37,4 @@ console.log(`Should return: 8. Output is: ${result}
 var result1 = countPairsInt(3, 100);
 console.log(`Should return: 7. Output is: ${result1}
 `);
+*/
