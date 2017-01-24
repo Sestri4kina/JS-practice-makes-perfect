@@ -10,7 +10,7 @@
  * An arithmetic sequence will always consist of at least 3 numbers.
  * If this condition is not satisfied, the function will return undefined.
  */
-function hasArithmProg(data){
+module.exports = function hasArithmProg(data){
     if(data.length <= 2) return undefined;
     var result = [];
     for (var i = 1; i < data.length; i++){
@@ -25,8 +25,9 @@ function hasArithmProg(data){
 
     return (testArithmProg) ? true :
         (anyArithmProg === -1) ? false : anyArithmProg;
-}
+};
 
+/*
 var result = hasArithmProg([9,5,1]);
 console.log(`Should return: true. Output is: ${result}
 `);
@@ -42,4 +43,4 @@ console.log(`Should return: false. Output is: ${result2}
 var result3 = hasArithmProg([9,1]);
 console.log(`Should return: 'undefined'. Output is: ${result3}
 `);
-
+*/
