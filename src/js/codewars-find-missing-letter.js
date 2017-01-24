@@ -7,12 +7,13 @@
  * The length of the array will always be at least 2.
  * The array will always contain letters in only one case.
  */
-function findMissingLetter(data){
+module.exports = function findMissingLetter(data){
     var charCode = data.map(x => {return x.charCodeAt(0)})
                      .find((x, index, arr) => {return x === arr[index+1] - 2});
     return String.fromCharCode(charCode+1);
-}
+};
 
+/*
 var result = findMissingLetter(['a','b','c','d','f']);
 console.log(`Should return: 'e'. Output is: ${result}
 `);
@@ -20,3 +21,4 @@ console.log(`Should return: 'e'. Output is: ${result}
 var result1 = findMissingLetter(['O','Q','R','S']);
 console.log(`Should return: 'P'. Output is: ${result1}
 `);
+    */
