@@ -20,7 +20,7 @@ function countPrimes(num){
     return countFactors;
 }
 
-function consecutiveKPrimes(k, arr){
+module.exports = function consecutiveKPrimes(k, arr){
     var result = arr.map(x => {return countPrimes(x)});
     var countPairs = 0;
     for (var i = 0; i < result.length; i++){
@@ -29,8 +29,9 @@ function consecutiveKPrimes(k, arr){
         }
     }
     return countPairs;
-}
+};
 
+/*
 var result = consecutiveKPrimes(3, [10158, 10182, 10184, 10172, 10179, 10168, 10156, 10165, 10155, 10161, 10178, 10170]);
 console.log(`Should return: 5. Output is: ${result}
 `);
@@ -38,7 +39,7 @@ console.log(`Should return: 5. Output is: ${result}
 var result1 = consecutiveKPrimes(2, [10123, 10122, 10132, 10129, 10145, 10148, 10147, 10135, 10146, 10134]);
 console.log(`Should return: 2. Output is: ${result1}
 `);
-
+*/
 
 
 
