@@ -18,7 +18,7 @@ function hasKprimes(num, k){
     return (k === 1 && count === 0) ? true : k === count;
 }
 
-function countKprimes(k, start, end){
+module.exports = function countKprimes(k, start, end){
     var kPrimes = [];
     for (var i = start; i <= end; i++){
         if(hasKprimes(i, k)){
@@ -26,7 +26,7 @@ function countKprimes(k, start, end){
         }
     }
     return kPrimes;
-}
+};
 
 function puzzle(s){
     var c = countKprimes(7, 0, s)[0],
@@ -39,6 +39,7 @@ function puzzle(s){
     return count;
 }
 
+/*
 var result = countKprimes(5, 500, 600);
 console.log(`Should return: [500, 520, 552, 567, 588, 592, 594]. Output is: ${result}
 `);
@@ -59,4 +60,4 @@ var result4 = puzzle(138);
 console.log(`Should return: 1. Output is: ${result4}
 `);
 
-
+*/
