@@ -1,7 +1,7 @@
 /**
  * Created by Sestri4kina on 25.01.2017.
  */
-function rolldiceSumProb(num, dices) {
+module.exports = function rolldiceSumProb(num, dices) {
     var events = [];
     if (num > 6 * dices) return 0;
     if (dices == 2) {
@@ -44,19 +44,20 @@ function rolldiceSumProb(num, dices) {
             }
         }
     }
-   return events.length / Math.pow(6, dices);
-}
+   return (events.length / Math.pow(6, dices)).toFixed(4);
+};
 
+/*
 var result = rolldiceSumProb(11, 2);
-console.log(`Should return: 0.055555555555. Output is: ${result}
+console.log(`Should return: 0.0555. Output is: ${result}
 `);
 
 var result1 = rolldiceSumProb(8, 2);
-console.log(`Should return: 0.13888888889. Output is: ${result1}
+console.log(`Should return: 0.1389. Output is: ${result1}
 `);
 
 var result2 = rolldiceSumProb(8, 3);
-console.log(`Should return: 0.0972222222222. Output is: ${result2}
+console.log(`Should return: 0.0972. Output is: ${result2}
 `);
 
 /*
