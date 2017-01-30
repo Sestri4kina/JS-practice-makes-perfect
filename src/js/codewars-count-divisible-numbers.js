@@ -4,7 +4,7 @@
  * Write function divisibleCount(x, y, k) that takes in 3 numbers x, y and k,
  * and returns the number of integers within the range [x..y] that are divisible by k
  */
-function divisibleCount(start, end, k) {
+module.exports = function divisibleCount(start, end, k) {
     //check special cases
     var dif = end -start;
     if (dif == 0 && start % k === 0) return 1;
@@ -19,8 +19,9 @@ function divisibleCount(start, end, k) {
     var last = reverseArr.find(x => { return x % k === 0;});
     //find an amount of arithmetic progression's elements
     return (last - first)/k + 1;
-}
+};
 
+/*
 var result = divisibleCount(6,11,2);
 console.log(`Should return: 3. Output is: ${result}
 `);
