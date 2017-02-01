@@ -2,7 +2,7 @@
  * Created by Sestri4kina on 27.01.2017.
  */
 //time test - around 600ms
-function oddity(num){
+module.exports = function oddity(num){
     //special case
     if (num === 1){ return 'odd' }
     //build an array of prime factors
@@ -31,8 +31,9 @@ function oddity(num){
 
     return result % 2 === 0 ? 'even' : 'odd';
 
-}
+};
 
+/*
 var result = oddity(4);
 console.log(`Should return: 'odd'. Output is: ${result}
 `);
