@@ -1,9 +1,11 @@
 /**
  * Created by Sestri4kina on 03.02.2017.
  *
- *
+ * https://www.codewars.com/kata/roman-numerals-encoder/javascript
+ * Create a function taking a positive integer(n < 4000) as its parameter and
+ * returning a string containing the Roman Numeral representation of that integer.
  */
-function romanEncoder(num){
+module.exports = function romanEncoder(num){
     var romans = [
             {letter: 'I', num: 1}, {letter: 'II', num: 2},
             {letter: 'III', num: 3}, {letter: 'IV', num: 4},
@@ -32,8 +34,9 @@ function romanEncoder(num){
         })
         .map(x => { return x.letter })
         .join('');
-}
+};
 
+/*
 var result = romanEncoder(1990);
 console.log(`Should return: 'MCMXC'. Output is: ${result}
 `);
@@ -49,3 +52,4 @@ console.log(`Should return: 'M'. Output is: ${result2}
 var result3 = romanEncoder(8463);
 console.log(`Should return: 'MMMMMMMMCDLXIII'. Output is: ${result3}
 `);
+*/
