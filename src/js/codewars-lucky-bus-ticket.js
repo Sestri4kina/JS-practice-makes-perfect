@@ -3,7 +3,7 @@
  *
  *https://www.codewars.com/kata/lucky-bus-ticket/train/javascript
  */
-function isLucky(ticket) {
+module.exports = function isLucky(ticket) {
     if ( ticket.length != 6 ) return false;
     var firstHalf = ticket
             .slice(0, 3)
@@ -15,8 +15,9 @@ function isLucky(ticket) {
             .reduce((prev, curr) => { return Number(prev) + Number(curr) });
 
     return firstHalf === secondHalf;
-}
+};
 
+/*
 var result = isLucky('123321');
 console.log(`Should return: true. Output is: ${result}
 `);
