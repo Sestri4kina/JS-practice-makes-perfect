@@ -3,12 +3,11 @@
  *
  * reactivex.io/learnrx
  */
-Array.prototype.concatAll = function() {
+Array.prototype.concatAll = function () {
     var results = [];
-    this.forEach(function(subArray) {
+    this.forEach(function (subArray) {
         if (Array.isArray(subArray)) results.push(...subArray);
     });
-
     return results;
 };
 
@@ -93,3 +92,5 @@ function getIdTitleBoxart() {
 }
 
 console.log(getIdTitleBoxart());
+
+
