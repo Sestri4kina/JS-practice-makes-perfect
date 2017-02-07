@@ -6,7 +6,7 @@
  * total amount of vodka drunk by god.Result must be rounded to nearest one and
  * can be return both in literes or mililitres.
  */
-function vodkaConsumption(shots){
+module.exports = function vodkaConsumption(shots){
     var capacity = shots
         .map(x => {
             if ( x.endsWith('ml') ) return +x.replace(/ml/, '');
@@ -16,8 +16,9 @@ function vodkaConsumption(shots){
         .reduce((prev, curr) => { return prev + curr});
 
     return `${capacity}ml`;
-}
+};
 
+/*
 var result = vodkaConsumption(["40ml","5.5l"]);
 console.log(`Should return: '5540ml'. Output is: ${result}
 `);
@@ -25,4 +26,4 @@ console.log(`Should return: '5540ml'. Output is: ${result}
 var result3 = vodkaConsumption(["500ml","2l","1.4l"]);
 console.log(`Should return: '3900ml'. Output is: ${result3}
 `);
-
+*/
