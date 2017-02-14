@@ -9,13 +9,14 @@
  * Output:  [ 2, 4, 3, -4.5]
  * If the array has 0 or 1 values or is null or None, your method should return an empty array.
  */
-function averages(numbers) {
+module.exports = function averages(numbers) {
     return numbers === null || numbers.length === 0 || numbers.length === 1 ? [] :
         numbers.map((x, index, arr) => {
             return index != arr.length-1 ? 0.5 * (x + arr[index+1]) : 0;
         }).slice(0, numbers.length - 1);
-}
+};
 
+/*
 var result = averages([2, 2, 2, 2, 2]);
 console.log(`Should return: [2, 2, 2, 2]. Output is: ${result}
 `);
@@ -28,3 +29,4 @@ var result1 = averages([1, 3, 5, 1, -10]);
 console.log(`Should return: [2, 4, 3, -4.5]. Output is: ${result1}
 `);
 
+*/
