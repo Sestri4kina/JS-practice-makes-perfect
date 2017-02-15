@@ -1,5 +1,7 @@
 /**
  * Created by Sestri4kina on 08.02.2017.
+ *
+ * reactivex.io/learnrx
  */
 Array.prototype.concatAll = function () {
     var results = [];
@@ -75,16 +77,6 @@ function getIdTitleBoxart() {
             ]
         }
     ];
-
-
-    // Use one or more concatMap, map, and reduce calls to create an array with the following items (order doesn't matter)
-    // [
-    //	 {"id": 675465,"title": "Fracture","boxart":"http://cdn-0.nflximg.com/images/2891/Fracture120.jpg" },
-    //	 {"id": 65432445,"title": "The Chamber","boxart":"http://cdn-0.nflximg.com/images/2891/TheChamber130.jpg" },
-    //	 {"id": 654356453,"title": "Bad Boys","boxart":"http://cdn-0.nflximg.com/images/2891/BadBoys140.jpg" },
-    //	 {"id": 70111470,"title": "Die Hard","boxart":"http://cdn-0.nflximg.com/images/2891/DieHard150.jpg" }
-    // ];
-
     return movieLists.
     concatMap(movie => movie.videos.map(video => {
         return {"id": video.id,
@@ -96,4 +88,14 @@ function getIdTitleBoxart() {
     }));
 }
 
-console.log(getIdTitleBoxart());
+console.log(`   Output is: 
+
+${JSON.stringify(getIdTitleBoxart())}
+
+   Should output:
+
+ [ {"id": 675465,"title": "Fracture","boxart":"http://cdn-0.nflximg.com/images/2891/Fracture120.jpg" },
+   {"id": 65432445,"title": "The Chamber","boxart":"http://cdn-0.nflximg.com/images/2891/TheChamber130.jpg" },
+   {"id": 654356453,"title": "Bad Boys","boxart":"http://cdn-0.nflximg.com/images/2891/BadBoys140.jpg" },
+   {"id": 70111470,"title": "Die Hard","boxart":"http://cdn-0.nflximg.com/images/2891/DieHard150.jpg" }];
+`);
