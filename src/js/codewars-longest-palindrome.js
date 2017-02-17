@@ -64,7 +64,7 @@ function allOddPalsLength(s) {
     return lengthArr;
 }
 
-function longestPalindrome(s){
+module.exports = function longestPalindrome(s){
     if (s.length == 0) return 0;
     if (s.length == 1) return 1;
     var oddPals =  allOddPalsLength(s),
@@ -75,8 +75,9 @@ function longestPalindrome(s){
     //console.log(findEvenPal(s));
     //console.log(allEvenPalsLength(s));
     return result.reduce((a,b) => {return a > b ? a : b});
-}
+};
 
+/*
 var result = longestPalindrome("a");
 console.log(`Should return: 1. Output is: ${result}
 `);
