@@ -17,14 +17,32 @@ function rearrangeKLastDigits(num, k){
     let numArr = num.toString().split('').map(x => +x),
         firstPart = numArr.slice(0, numArr.length - k).join(''),
         kLastDigits = numArr.slice(numArr.length - k),
-        sortedKLastDigits = kLastDigits.sort((a,b) => {return b-a;}),
+        kLastDigitsNum = +kLastDigits.join(''),
+        interim = numArr.slice(numArr.length - k),
+        possibleVariants = [],
+        tmp = numArr.slice(numArr.length - k),
+        sortedKLastDigits = tmp.sort((a,b) => {return b-a;}),
         firstBiggest = sortedKLastDigits[0],
         secondBiggest = sortedKLastDigits.find( x => {return x < firstBiggest;}),
         indexSecondBiggest = sortedKLastDigits.findIndex( x => {return x < firstBiggest;}),
-        result = [secondBiggest];
+        secondRes = [secondBiggest];
 
     sortedKLastDigits.splice(indexSecondBiggest, 1);
-    let lastPart = result.concat(sortedKLastDigits).join('');
+    let possibleVar = secondRes.concat(sortedKLastDigits).join('');
+    possibleVariants.push(possibleVar);
+
+    for (var i = 0; i < k; i++) {
+
+        var lastEl = interim.pop();
+        interim.unshift(lastEl);
+
+        if ( +interim.join('') < kLastDigitsNum ) {
+            possibleVariants.push(interim.join(''));
+        }
+    }
+
+    let lastPart = possibleVariants.reduce((a,b) => { return a>b ? a : b;}, 0);
+    if (lastPart == 0) return -1;
 
     return +(firstPart + lastPart);
 }
