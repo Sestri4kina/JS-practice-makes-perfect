@@ -13,51 +13,55 @@ function digitsIncrease(n){
     return counter === 0;
 }
 
-function rearrangeKLastDigits(num, k){
+function rearrangeKLastDigitsClockwise(num, k){
     let numArr = num.toString().split('').map(x => +x),
         firstPart = numArr.slice(0, numArr.length - k).join(''),
         kLastDigits = numArr.slice(numArr.length - k),
-        kLastDigitsNum = +kLastDigits.join(''),
-        interim = numArr.slice(numArr.length - k),
-        possibleVariants = [],
-        tmp = numArr.slice(numArr.length - k),
-        sortedKLastDigits = tmp.sort((a,b) => {return b-a;}),
-        firstBiggest = sortedKLastDigits[0],
-        secondBiggest = sortedKLastDigits.find( x => {return x < firstBiggest;}),
-        indexSecondBiggest = sortedKLastDigits.findIndex( x => {return x < firstBiggest;}),
-        secondRes = [secondBiggest];
-
-    sortedKLastDigits.splice(indexSecondBiggest, 1);
-    let possibleVar = secondRes.concat(sortedKLastDigits).join('');
-    possibleVariants.push(possibleVar);
+        possibleVariants = [];
 
     for (var i = 0; i < k; i++) {
-
-        var lastEl = interim.pop();
-        interim.unshift(lastEl);
-
-        if ( +interim.join('') < kLastDigitsNum ) {
-            possibleVariants.push(interim.join(''));
-        }
+        kLastDigits.unshift(kLastDigits.pop());
+        possibleVariants.push(kLastDigits.join(''));
     }
 
-    let lastPart = possibleVariants.reduce((a,b) => { return a>b ? a : b;}, 0);
-    if (lastPart == 0) return -1;
+    return possibleVariants.map(x => +(firstPart + x))
+        .filter(x => x < num )
+        .reduce((a,b) => { return a>b ? a : b;}, 0);
+}
 
-    return +(firstPart + lastPart);
+function switchKLastDigits(num, k){
+    let numArr = num.toString().split('').map(x => +x),
+        firstPart = numArr.slice(0, numArr.length - k).join(''),
+        kLastDigits = numArr.slice(numArr.length - k),
+        kLastDigitsNum = +numArr.slice(numArr.length - k).join(''),
+        sortedKLastDigits = kLastDigits.sort((a,b) => {return b-a;}),
+        firstBiggest = sortedKLastDigits[0],
+        secondBiggest = sortedKLastDigits.find( x => {return x < firstBiggest;}),
+        indexSecondBiggest = sortedKLastDigits.findIndex( x => {return x < firstBiggest;});
+
+    sortedKLastDigits.splice(indexSecondBiggest, 1);
+    let lastPart = [secondBiggest].concat(sortedKLastDigits).join('');
+
+    return +(firstPart + lastPart) < kLastDigitsNum ? +(firstPart + lastPart) : 0;
+}
+
+function numberNotEndsWithZero(num){
+    return !num.toString().endsWith('0');
 }
 
 function nextSmaller(n) {
     if ( n < 10 ) return -1;
-    if (digitsIncrease(n)) return -1;
+    if ( digitsIncrease(n) && numberNotEndsWithZero(n) ) return -1;
     let numArr = n.toString().split(''),
         limit = numArr.length,
         nonDiffDigits = numArr.reduce((sum, x) => { return (x == numArr[0]) ? sum + 0 : sum + x  }, 0);
     if ( nonDiffDigits == 0 ) return -1;
+
     for (var k = 2; k <= limit; k++) {
-        if ( rearrangeKLastDigits(n, k) < n ) {
-            console.log(rearrangeKLastDigits(n, k));
-            return rearrangeKLastDigits(n, k);
+        if  ( rearrangeKLastDigitsClockwise(n, k) != 0 || switchKLastDigits(n, k) != 0){
+            return rearrangeKLastDigitsClockwise(n, k) > switchKLastDigits(n, k)
+                ? rearrangeKLastDigitsClockwise(n, k)
+                : switchKLastDigits(n, k);
         }
     }
 }
@@ -95,4 +99,9 @@ Should return: 123456789. Output is: ${result6}
 var result7 = nextSmaller(88574203);
 console.log(`Testing for: 88574203.
 Should return: 88574032. Output is: ${result7}
+`);
+
+var result8 = nextSmaller(28389);
+console.log(`Testing for: 28389.
+Should return: 23988. Output is: ${result8}
 `);
