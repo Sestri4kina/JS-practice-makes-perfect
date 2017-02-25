@@ -66,6 +66,7 @@ function nextSmaller(n) {
     }
 }
 
+/*
 var result = nextSmaller(21);
 console.log(`Should return: 12. Output is: ${result}
 `);
@@ -95,6 +96,7 @@ var result6 = nextSmaller(123456798);
 console.log(`Testing for: 123456798.
 Should return: 123456789. Output is: ${result6}
 `);
+*/
 
 var result7 = nextSmaller(88574203);
 console.log(`Testing for: 88574203.
@@ -104,4 +106,14 @@ Should return: 88574032. Output is: ${result7}
 var result8 = nextSmaller(28389);
 console.log(`Testing for: 28389.
 Should return: 23988. Output is: ${result8}
+`);
+
+var result9 = nextSmaller(6055);
+console.log(`Testing for: 6055.
+Should return: 5650. Output is: ${result9}
+`);
+
+var result10 = nextSmaller(186899);
+console.log(`Testing for: 186899.
+Should return: 169988. Output is: ${result10}
 `);
