@@ -3,7 +3,12 @@
  *
  * https://www.codewars.com/kata/next-smaller-number-with-the-same-digits/train/javascript
  */
+function numberHasNoZero(n) {
+    return n.toString().indexOf('0') === -1
+}
+
 function digitsIncrease(n){
+    if ( !numberHasNoZero(n) ) return false;
     let numArr = n.toString().split('').map(x => +x).filter(x => { return x != 0 }),
         counter = 0;
     for (var i = 0, limit = numArr.length; i < limit - 1; i++){
@@ -11,6 +16,10 @@ function digitsIncrease(n){
         else counter += 1;
     }
     return counter === 0;
+}
+
+function numberOfDigits(num){
+    return num.toString().length;
 }
 
 function rearrangeKLastDigitsClockwise(num, k){
@@ -25,7 +34,7 @@ function rearrangeKLastDigitsClockwise(num, k){
     }
 
     return possibleVariants.map(x => +(firstPart + x))
-        .filter(x => x < num )
+        .filter(x => { return (x < num && numberOfDigits(x) === numberOfDigits(num)) })
         .reduce((a,b) => { return a>b ? a : b;}, 0);
 }
 
@@ -33,57 +42,43 @@ function switchKLastDigits(num, k){
     let numArr = num.toString().split('').map(x => +x),
         firstPart = numArr.slice(0, numArr.length - k).join(''),
         kLastDigits = numArr.slice(numArr.length - k),
-        //kLastDigitsNum = +numArr.slice(numArr.length - k).join(''),
         sortedKLastDigits = kLastDigits.sort((a,b) => {return b-a;}),
         diff = sortedKLastDigits.filter((x, i, arr) =>{ return arr.indexOf(x) === i; }),
         diffIndices = diff.map(x => sortedKLastDigits.indexOf(x)),
-        possibleLast = [];
+        possibleVariants = [];
 
-    for (var i = 0; i < diff.length; i++) {
-        var tmp = sortedKLastDigits;
+    for (let i = 1; i < diff.length; i++) {
+        let tmp = sortedKLastDigits;
         tmp.splice(diffIndices[i], 1);
         tmp.unshift(diff[i]);
-        possibleLast.push(tmp.join(''));
+        possibleVariants.push(tmp.join(''));
+        tmp = kLastDigits.sort((a,b) => {return b-a;});
+
     }
 
-    return possibleLast.map(x => +(firstPart + x) )
-        .filter(x => x < num)
-        .reduce((a,b) => { return a>b ? a : b }, 0);
-
-    /*
-        firstBiggest = sortedKLastDigits[0],
-
-        secondBiggest = sortedKLastDigits.find( x => {return x < firstBiggest;}),
-        indexSecondBiggest = sortedKLastDigits.findIndex( x => {return x < firstBiggest;});
-
-    sortedKLastDigits.splice(indexSecondBiggest, 1);
-    let lastPart = [secondBiggest].concat(sortedKLastDigits).join('');
-
-    return +(firstPart + lastPart) < kLastDigitsNum ? +(firstPart + lastPart) : 0;
-
-    */
-}
-
-function numberNotEndsWithZero(num){
-    return !num.toString().endsWith('0');
+    return possibleVariants.map(x => +(firstPart + x) )
+        .filter(x => { return (x < num && numberOfDigits(x) === numberOfDigits(num)) })
+        .reduce((a,b) => { return a>b ? a : b; }, 0);
 }
 
 function nextSmaller(n) {
     if ( n < 10 ) return -1;
-    if ( digitsIncrease(n) && numberNotEndsWithZero(n) ) return -1;
+    if ( digitsIncrease(n) && numberHasNoZero(n) ) return -1;
     let numArr = n.toString().split(''),
         limit = numArr.length,
         nonDiffDigits = numArr.reduce((sum, x) => { return (x == numArr[0]) ? sum + 0 : sum + x  }, 0);
     if ( nonDiffDigits == 0 ) return -1;
 
     for (var k = 2; k <= limit; k++) {
-        if  ( rearrangeKLastDigitsClockwise(n, k) != 0 || switchKLastDigits(n, k) != 0){
-            console.log(switchKLastDigits(n, k));
+        if  ( rearrangeKLastDigitsClockwise(n, k) != 0
+            || switchKLastDigits(n, k) != 0 ){
             return rearrangeKLastDigitsClockwise(n, k) > switchKLastDigits(n, k)
                 ? rearrangeKLastDigitsClockwise(n, k)
                 : switchKLastDigits(n, k);
         }
     }
+    if (rearrangeKLastDigitsClockwise(n, limit) === 0
+        || switchKLastDigits(n, limit) === 0) { return -1; }
 }
 
 /*
