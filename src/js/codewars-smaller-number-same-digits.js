@@ -33,9 +33,26 @@ function switchKLastDigits(num, k){
     let numArr = num.toString().split('').map(x => +x),
         firstPart = numArr.slice(0, numArr.length - k).join(''),
         kLastDigits = numArr.slice(numArr.length - k),
-        kLastDigitsNum = +numArr.slice(numArr.length - k).join(''),
+        //kLastDigitsNum = +numArr.slice(numArr.length - k).join(''),
         sortedKLastDigits = kLastDigits.sort((a,b) => {return b-a;}),
+        diff = sortedKLastDigits.filter((x, i, arr) =>{ return arr.indexOf(x) === i; }),
+        diffIndices = diff.map(x => sortedKLastDigits.indexOf(x)),
+        possibleLast = [];
+
+    for (var i = 0; i < diff.length; i++) {
+        var tmp = sortedKLastDigits;
+        tmp.splice(diffIndices[i], 1);
+        tmp.unshift(diff[i]);
+        possibleLast.push(tmp.join(''));
+    }
+
+    return possibleLast.map(x => +(firstPart + x) )
+        .filter(x => x < num)
+        .reduce((a,b) => { return a>b ? a : b }, 0);
+
+    /*
         firstBiggest = sortedKLastDigits[0],
+
         secondBiggest = sortedKLastDigits.find( x => {return x < firstBiggest;}),
         indexSecondBiggest = sortedKLastDigits.findIndex( x => {return x < firstBiggest;});
 
@@ -43,6 +60,8 @@ function switchKLastDigits(num, k){
     let lastPart = [secondBiggest].concat(sortedKLastDigits).join('');
 
     return +(firstPart + lastPart) < kLastDigitsNum ? +(firstPart + lastPart) : 0;
+
+    */
 }
 
 function numberNotEndsWithZero(num){
@@ -59,6 +78,7 @@ function nextSmaller(n) {
 
     for (var k = 2; k <= limit; k++) {
         if  ( rearrangeKLastDigitsClockwise(n, k) != 0 || switchKLastDigits(n, k) != 0){
+            console.log(switchKLastDigits(n, k));
             return rearrangeKLastDigitsClockwise(n, k) > switchKLastDigits(n, k)
                 ? rearrangeKLastDigitsClockwise(n, k)
                 : switchKLastDigits(n, k);
