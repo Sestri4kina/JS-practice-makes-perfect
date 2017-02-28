@@ -63,7 +63,7 @@ function switchKLastDigits(num, k){
 
 function nextBigger(n) {
     if ( n < 10 ) return -1;
-    if ( digitsDecrease(n) && numberHasNoZero(n) ) return -1;
+   // if ( digitsDecrease(n) && numberHasNoZero(n) ) return -1;
     let numArr = n.toString().split(''),
         limit = numArr.length,
         nonDiffDigits = numArr.reduce((sum, x) => { return (x == numArr[0]) ? sum + 0 : sum + x  }, 0);
@@ -77,20 +77,20 @@ function nextBigger(n) {
                 : switchKLastDigits(n, k);
         }
     }
-    if (rearrangeKLastDigitsClockwise(n, limit) === 0
-        || switchKLastDigits(n, limit) === 0) { return -1; }
+    //if (rearrangeKLastDigitsClockwise(n, limit) === 0
+      //  || switchKLastDigits(n, limit) === 0) { return -1; }
 }
 
-var result = nextBigger(21);
-console.log(`Should return: 12. Output is: ${result}
+var result = nextBigger(12);
+console.log(`Should return: 21. Output is: ${result}
 `);
 
-var result1 = nextBigger(531);
-console.log(`Should return: 513. Output is: ${result1}
+var result1 = nextBigger(513);
+console.log(`Should return: 531. Output is: ${result1}
 `);
 
-var result2 = nextBigger(2071);
-console.log(`Should return: 2017. Output is: ${result2}
+var result2 = nextBigger(2017);
+console.log(`Should return: 2071. Output is: ${result2}
 `);
 
 var result3 = nextBigger(9);
@@ -101,13 +101,13 @@ var result4 = nextBigger(111);
 console.log(`Should return: -1. Output is: ${result4}
 `);
 
-var result5 = nextBigger(907);
-console.log(`Testing for: 907.
-Should return: 790. Output is: ${result5}
+var result5 = nextBigger(790);
+console.log(`Testing for: 790.
+Should return: 907. Output is: ${result5}
 `);
 
-var result6 = nextBigger(123456798);
-console.log(`Testing for: 123456798.
+var result6 = nextBigger(123456789);
+console.log(`Testing for: 123456789  .
 Should return: 123456789. Output is: ${result6}
 `);
 
