@@ -3,14 +3,14 @@
  *
  * https://www.codewars.com/kata/character-limits-how-long-is-your-piece-of-string/train/javascript
  */
-function charCheck(text, max, spaces){
+module.exports = function charCheck(text, max, spaces){
     let modifiedText = spaces === true ?
         text : text.replace(/\s/g, '');
 
-    return (modifiedText.length <= max) ? [true, modifiedText]
-        : [false, modifiedText.slice(0, max)];
-}
+    return [modifiedText.length <= max, modifiedText.slice(0, max)];
+};
 
+/*
 var result = charCheck("I am applying for the role of Base Manager on Titan.", 60, true);
 console.log(`Should return: [true, "I am applying for the role of Base Manager on Titan."]. 
 Output is: ${result}
@@ -25,3 +25,4 @@ var result2 = charCheck("A challenging career moment came with the rapid depleti
 console.log(`Should return: [true,"AchallengingcareermomentcamewiththerapiddepletionofwatersuppliesonPhobos."]. 
 Output is: ${result2}
 `);
+    */
