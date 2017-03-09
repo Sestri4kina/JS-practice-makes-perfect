@@ -3,7 +3,7 @@
 *
 * https://www.codewars.com/kata/adding-big-numbers/train/javascript
 */
-function add(a, b) {
+module.exports = function add(a, b) {
     var aL = a.length,
         bL = b.length,
         limit = Math.min(aL, bL),
@@ -49,8 +49,9 @@ function add(a, b) {
     });
     
     return firstPartRes.slice().reverse().join('') + addition;
-}
+};
 
+/*
 var result = add('99', '11');
 console.log(`Should return: '110'. Output is: ${result}
 `);
@@ -70,3 +71,4 @@ console.log(`Should return: '247'. Output is: ${result3}
 var result4 = add('11123', '124');
 console.log(`Should return: '11247'. Output is: ${result4}
 `);
+*/
