@@ -4,16 +4,16 @@
  * https://www.codewars.com/kata/next-bigger-number-with-the-same-digits/train/javascript
 */
 function numberHasNoZero(n) {
-    return n.toString().indexOf('0') === -1
+    return n.toString().indexOf('0') === -1;
 }
 
 function digitsDecrease(n){
     if ( !numberHasNoZero(n) ) return false;
-    let numArr = n.toString().split('').map(x => +x).filter(x => { return x != 0 }),
+    let numArr = n.toString().split('').map(x => +x),
         counter = 0;
     for (var i = 0, limit = numArr.length; i < limit - 1; i++){
-        if ( numArr[i] / numArr[i+1] >= 1 ) counter += 0;
-        else counter += 1;
+        if ( numArr[i+1] / numArr[i] >= 1 ) counter += 1;
+        else counter += 0;
     }
     return counter === 0;
 }
@@ -33,54 +33,60 @@ function rearrangeKLastDigitsClockwise(num, k){
         possibleVariants.push(kLastDigits.join(''));
     }
 
-    return possibleVariants.map(x => +(firstPart + x))
-        .filter(x => { return (x > num && numberOfDigits(x) === numberOfDigits(num)) })
-        .reduce((a,b) => { return a<b ? a : b;}, 0);
+    let last = possibleVariants.map(x => +(firstPart + x))
+        .filter(x => { return (x > num && numberOfDigits(x) === numberOfDigits(num)); });
+    return last.length === 0 ? 0 : last.reduce((a,b) => { return a<b ? a : b;});
 }
 
 function switchKLastDigits(num, k){
     let numArr = num.toString().split('').map(x => +x),
         firstPart = numArr.slice(0, numArr.length - k).join(''),
         kLastDigits = numArr.slice(numArr.length - k),
-        sortedKLastDigits = kLastDigits.sort((a,b) => {return a-b;}),
+        sortedKLastDigits = kLastDigits.slice().sort((a,b) => {return a-b;}),
         diff = sortedKLastDigits.filter((x, i, arr) =>{ return arr.indexOf(x) === i; }),
         diffIndices = diff.map(x => sortedKLastDigits.indexOf(x)),
         possibleVariants = [];
 
-    for (let i = 1; i < diff.length; i++) {
-        let tmp = sortedKLastDigits;
+    for (let i = 0; i < diff.length; i++) {
+        let tmp = sortedKLastDigits.slice();
         tmp.splice(diffIndices[i], 1);
         tmp.unshift(diff[i]);
         possibleVariants.push(tmp.join(''));
-        tmp = kLastDigits.sort((a,b) => {return a-b;});
-
+        tmp = kLastDigits.slice().sort((a,b) => {return a-b;});
     }
 
-    return possibleVariants.map(x => +(firstPart + x) )
-        .filter(x => { return (x > num && numberOfDigits(x) === numberOfDigits(num)) })
-        .reduce((a,b) => { return a<b ? a : b; }, 0);
+    let last = possibleVariants.map(x => +(firstPart + x) )
+        .filter(x => { return (x > num && numberOfDigits(x) === numberOfDigits(num)); });
+    return last.length === 0 ? 0 : last.reduce((a,b) => { return a<b ? a : b; });
 }
 
-function nextBigger(n) {
+module.exports = function nextBigger(n) {
     if ( n < 10 ) return -1;
-   // if ( digitsDecrease(n) && numberHasNoZero(n) ) return -1;
+    if ( digitsDecrease(n) ) return -1;
     let numArr = n.toString().split(''),
         limit = numArr.length,
         nonDiffDigits = numArr.reduce((sum, x) => { return (x == numArr[0]) ? sum + 0 : sum + x  }, 0);
     if ( nonDiffDigits == 0 ) return -1;
 
     for (var k = 2; k <= limit; k++) {
-        if  ( rearrangeKLastDigitsClockwise(n, k) != 0
-            || switchKLastDigits(n, k) != 0 ){
+        if  ( rearrangeKLastDigitsClockwise(n, k) !== 0
+            && switchKLastDigits(n, k) !== 0 ){
             return rearrangeKLastDigitsClockwise(n, k) < switchKLastDigits(n, k)
                 ? rearrangeKLastDigitsClockwise(n, k)
                 : switchKLastDigits(n, k);
+        } else if (rearrangeKLastDigitsClockwise(n, k) !== 0
+            && switchKLastDigits(n, k) === 0 ){
+            return rearrangeKLastDigitsClockwise(n, k);
+        } else if (rearrangeKLastDigitsClockwise(n, k) === 0
+            && switchKLastDigits(n, k) !== 0 ){
+            return switchKLastDigits(n, k);
         }
     }
-    //if (rearrangeKLastDigitsClockwise(n, limit) === 0
-      //  || switchKLastDigits(n, limit) === 0) { return -1; }
-}
+    if (rearrangeKLastDigitsClockwise(n, limit) === 0
+        || switchKLastDigits(n, limit) === 0) { return -1; }
+};
 
+/*
 var result = nextBigger(12);
 console.log(`Should return: 21. Output is: ${result}
 `);
@@ -106,14 +112,14 @@ console.log(`Testing for: 790.
 Should return: 907. Output is: ${result5}
 `);
 
-var result6 = nextBigger(123456789);
-console.log(`Testing for: 123456789  .
-Should return: 123456789. Output is: ${result6}
+var result6 = nextBigger(1234567890);
+console.log(`Testing for: 1234567890  .
+Should return: 1234567908. Output is: ${result6}
 `);
 
-var result7 = nextBigger(88574203);
-console.log(`Testing for: 88574203.
-Should return: 88574032. Output is: ${result7}
+var result7 = nextBigger(88574032);
+console.log(`Testing for: 88574032.
+Should return: 88574203. Output is: ${result7}
 `);
 
 var result8 = nextBigger(28389);
@@ -121,12 +127,8 @@ console.log(`Testing for: 28389.
 Should return: 23988. Output is: ${result8}
 `);
 
-var result9 = nextBigger(6055);
-console.log(`Testing for: 6055.
-Should return: 5650. Output is: ${result9}
+var result9 = nextBigger(5650);
+console.log(`Testing for: 5650.
+Should return: 6055. Output is: ${result9}
 `);
-
-var result10 = nextBigger(186899);
-console.log(`Testing for: 186899.
-Should return: 169988. Output is: ${result10}
-`);
+*/
