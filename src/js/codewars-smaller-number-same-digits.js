@@ -61,7 +61,7 @@ function switchKLastDigits(num, k){
         .reduce((a,b) => { return a>b ? a : b; }, 0);
 }
 
-function nextSmaller(n) {
+module.exports = function nextSmaller(n) {
     if ( n < 10 ) return -1;
     if ( digitsIncrease(n) && numberHasNoZero(n) ) return -1;
     let numArr = n.toString().split(''),
@@ -79,7 +79,7 @@ function nextSmaller(n) {
     }
     if (rearrangeKLastDigitsClockwise(n, limit) === 0
         || switchKLastDigits(n, limit) === 0) { return -1; }
-}
+};
 
 /*
 var result = nextSmaller(21);
@@ -111,7 +111,6 @@ var result6 = nextSmaller(123456798);
 console.log(`Testing for: 123456798.
 Should return: 123456789. Output is: ${result6}
 `);
-*/
 
 var result7 = nextSmaller(88574203);
 console.log(`Testing for: 88574203.
@@ -132,3 +131,4 @@ var result10 = nextSmaller(186899);
 console.log(`Testing for: 186899.
 Should return: 169988. Output is: ${result10}
 `);
+*/
