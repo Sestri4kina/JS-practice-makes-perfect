@@ -3,9 +3,11 @@
 *
 * https://www.codewars.com/kata/two-oldest-ages-1/train/javascript
 */
-function twoOldestAges(ages){
+module.exports = function twoOldestAges(ages){
     return ages.slice().sort((a,b) => {return a-b}).slice(-2);
-}
+};
 
+/*
 let result = twoOldestAges( [1, 2, 10, 8] );
 console.log(`Should return: [8, 10]. Output is: ${result}`);
+*/
