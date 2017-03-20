@@ -22,7 +22,7 @@ function amountOfElementsGreaterThanCurrent(arrInput) {
          });
 }
 
-function weakNumbers(n) {
+module.exports = function weakNumbers(n) {
   let arr = [];
   for (let i = 1; i <= n; i++) {
       arr.push( amountOfDivisors(i) );
@@ -32,8 +32,9 @@ function weakNumbers(n) {
       amountMaxWeakness = weakness.length -
       weakness.slice().sort((a,b) => {return a-b;}).indexOf(maxWeakness);
   return [maxWeakness, amountMaxWeakness];
-}
+};
 
+/*
 let result = weakNumbers(500);
 console.log(`Should return: [403,1]. Output is: ${result}`);
 
@@ -42,3 +43,4 @@ console.log(`Should return: [2,2]. Output is: ${result1}`);
 
 let result2 = weakNumbers(7);
 console.log(`Should return: [2,1]. Output is: ${result2}`);
+*/
