@@ -24,10 +24,6 @@ function flip(str) {
     .join('');
 }
 
-function noMinuses(str) {
-  return str.indexOf('-') === -1;
-}
-
 function flipPancakes(str) {
   if (str.indexOf('-') === -1) return 0;
   let counter = 0;
@@ -35,7 +31,7 @@ function flipPancakes(str) {
     let ind = str.lastIndexOf('-');
     str = flip(str.slice(0, ind+1)) + str.slice(ind+1);
     counter++;
-    if (noMinuses(str)) return counter;
+    if (str.indexOf('-') === -1) return counter;
   }
 }
 
