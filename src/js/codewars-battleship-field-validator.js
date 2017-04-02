@@ -1,7 +1,7 @@
 /*
 * created by Sestri4kina on 31.03.2017
 *
-*
+* https://www.codewars.com/kata/battleship-field-validator/train/javascript
 */
 function checkField(field) {
   for (let i = 0; i < 10; i++) {
@@ -46,7 +46,7 @@ function copy(arr) {
   return newArr;
 }
 
-function validateBattlefield(inputField) {
+module.exports = function validateBattlefield(inputField) {
   let field = copy(inputField);
   if (!checkField(field)) return false;
   let ships = [
@@ -62,27 +62,28 @@ function validateBattlefield(inputField) {
           ship = ships.find(ship => ship.len === shipLength);
         ship.counter++;
         field[i][j] = 0;
-        console.log(`${i} ${j} ${shipLength} H`);
+        //console.log(`${i} ${j} ${shipLength} H`);
       }
       else if (field[i][j] === 1 && field[i+1][j] === 1) {
         let shipLength = findVerticalLength(i,j,field),
           ship = ships.find(ship => ship.len === shipLength);
         ship.counter++;
         field[i][j] = 0;
-        console.log(`${i} ${j} ${shipLength} V`);
+        //console.log(`${i} ${j} ${shipLength} V`);
       }
       else if (field[i][j] === 1) {
         let oneShip = ships.find(ship => ship.len === 1);
         oneShip.counter++;
         field[i][j] = 0;
-        console.log(`${i} ${j} 1`);
+        //console.log(`${i} ${j} 1`);
         }
     }
   }
-  console.log(ships);
+  //console.log(ships);
   return ships.every(ship => ship.amount === ship.counter);
-}
+};
 
+/*
 let result = validateBattlefield(
                 [[1, 0, 0, 0, 0, 1, 1, 0, 0, 0],
                  [1, 0, 1, 0, 0, 0, 0, 0, 1, 0],
@@ -95,3 +96,4 @@ let result = validateBattlefield(
                  [0, 0, 0, 0, 0, 0, 0, 1, 0, 0],
                  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]);
 console.log(`Should return: true. Case#1: ${result}`);
+*/
