@@ -56,7 +56,7 @@ function checkForZeros(str) {
   return result;
 }
 
-function multiply(a, b) {
+module.exports = function multiply(a, b) {
   if (a === '0' || b === '0') return '0';
   let A = checkForZeros(a),
     B = checkForZeros(b),
@@ -74,8 +74,9 @@ function multiply(a, b) {
       result = concatArrays(result, multiplyArrayByNum(interimArr, arr2[limit-1-i]));
     }
     return result.join('');
-}
+};
 
+/*
 let result = multiply("2", "3");
 console.log(`Result is: '6'. Output is: ${result === '6'}`);
 
