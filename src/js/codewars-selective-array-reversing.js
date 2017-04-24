@@ -4,7 +4,7 @@
  * https://www.codewars.com/kata/selective-array-reversing/train/javascript
  */
 
- function selReverse(inputArr, len) {
+ module.exports = function selReverse(inputArr, len) {
   if (len === 0) return inputArr;
   let arr = [], limit = inputArr.length;
   for (var i = 0 ; i < limit; i++) {
@@ -12,8 +12,8 @@
     arr[(ind+1)*len - 1 - j] = inputArr[i];
   }
   return arr.filter(x => x !== null);
-}
-
+};
+/*
  let result = selReverse([2,4,6,8,10,12,14,16], 3);
  console.log(`Should return: [6,4,2, 12,10,8, 16,14]. Output is: ${result}`);
 
