@@ -3,7 +3,7 @@
  *
  * https://www.codewars.com/kata/simple-fun-number-135-missing-alphabets/train/javascript
  */
- function missingAlphabets(s) {
+ module.exports = function missingAlphabets(s) {
    let alphabet = 'abcdefghijklmnopqrstuvwxyz',
      arr = [], limit = alphabet.length,
      limit2 = s.length, maxOccur = 0,
@@ -21,8 +21,8 @@
      result += arr[i][0].repeat(maxOccur - arr[i][1]);
    }
    return result;
- }
-
+ };
+/*
  let result = missingAlphabets("codewars");
  console.log(`Should return: "bfghijklmnpqtuvxyz". Output is: ${result}
  `);
@@ -34,3 +34,4 @@
  let result2 = missingAlphabets("abcdefghijklmnopqrstuvwxy");
  console.log(`Should return: "z". Output is: ${result2}
  `);
+*/
